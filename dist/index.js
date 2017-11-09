@@ -27,10 +27,10 @@ exports["default"] = function () {
     collection: "posts" }, options);
 
   var feedOptions = _extends2.feedOptions;
-  var limit = _extends2.limit;
-  var encoding = _extends2.encoding;
-  var destination = _extends2.destination;
-  var collection = _extends2.collection;
+  var limit = feedOptions.limit || _extends2.limit;
+  var encoding = feedOptions.encoding || _extends2.encoding;
+  var destination = feedOptions.destination ||_extends2.destination;
+  var collection = feedOptions.collection || _extends2.collection;
 
   return function (files, metalsmith, done) {
     if (!feedOptions.site_url) {
