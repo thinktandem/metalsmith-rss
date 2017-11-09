@@ -1,30 +1,57 @@
 {
-  "name": "metalsmith-rss",
-  "version": "1.0.0",
-  "description": "Metalsmith plugin to generate rss feed",
-  "keywords": [
-    "metalsmith",
-    "metalsmith-plugin"
+  "_args": [
+    [
+      {
+        "raw": "metalsmith-rss@^1.0.0",
+        "scope": null,
+        "escapedName": "metalsmith-rss",
+        "name": "metalsmith-rss",
+        "rawSpec": "^1.0.0",
+        "spec": ">=1.0.0 <2.0.0",
+        "type": "range"
+      },
+      "/app"
+    ]
   ],
-  "author": "Maxime Thirouin",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MoOx/metalsmith-rss.git"
+  "_from": "metalsmith-rss@>=1.0.0 <2.0.0",
+  "_id": "metalsmith-rss@1.0.0",
+  "_inCache": true,
+  "_location": "/metalsmith-rss",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "moox",
+    "email": "m@moox.io"
   },
-  "homepage": "https://github.com/MoOx/metalsmith-rss",
+  "_npmVersion": "2.7.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "metalsmith-rss@^1.0.0",
+    "scope": null,
+    "escapedName": "metalsmith-rss",
+    "name": "metalsmith-rss",
+    "rawSpec": "^1.0.0",
+    "spec": ">=1.0.0 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/metalsmith-rss/-/metalsmith-rss-1.0.0.tgz",
+  "_shasum": "85dd0dd9eeb7f6e33b8047ebcde01f495b6476c0",
+  "_shrinkwrap": null,
+  "_spec": "metalsmith-rss@^1.0.0",
+  "_where": "/app",
+  "author": {
+    "name": "Maxime Thirouin"
+  },
   "bugs": {
     "url": "https://github.com/MoOx/metalsmith-rss/issues"
   },
-  "files": [
-    "CHANGELOG.md",
-    "LICENSE",
-    "dist"
-  ],
-  "main": "dist/index.js",
   "dependencies": {
     "rss": "^1.1.1"
   },
+  "description": "Metalsmith plugin to generate rss feed",
   "devDependencies": {
     "babel": "^5.1.13",
     "babel-eslint": "^3.0.1",
@@ -33,10 +60,42 @@
     "metalsmith": "^1.7.0",
     "tape": "^4.0.0"
   },
+  "directories": {},
+  "dist": {
+    "shasum": "85dd0dd9eeb7f6e33b8047ebcde01f495b6476c0",
+    "tarball": "https://registry.npmjs.org/metalsmith-rss/-/metalsmith-rss-1.0.0.tgz"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "dist"
+  ],
+  "gitHead": "569f3db41cbca5cf0c12aaf8dd738ac5b460d6be",
+  "homepage": "https://github.com/MoOx/metalsmith-rss",
+  "keywords": [
+    "metalsmith",
+    "metalsmith-plugin"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "maintainers": [
+    {
+      "name": "moox",
+      "email": "m@moox.io"
+    }
+  ],
+  "name": "metalsmith-rss",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoOx/metalsmith-rss.git"
+  },
   "scripts": {
     "lint": "eslint .",
+    "prepublish": "babel src --out-dir dist",
     "tape": "babel-tape-runner '__tests__/*.js'",
-    "test": "npm run lint && npm run tape",
-    "prepublish": "babel src --out-dir dist"
-  }
+    "test": "npm run lint && npm run tape"
+  },
+  "version": "1.0.0"
 }
