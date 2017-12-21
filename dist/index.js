@@ -58,11 +58,35 @@ exports["default"] = function () {
     var feed = new _RSS2["default"](feedOptions);
     var collectionItems = metadata.collections[collection].slice(0, limit);
 
+
     collectionItems.forEach(function (item) {
-      feed.item(_extends({
-        description: item.contents }, item, {
-        url: item.url ? _url2["default"].resolve(feedOptions.site_url, item.url) : undefined
-      }));
+      // Note, this seemed the best way to grab the actual body since
+      // metalsmith doesn't have this mechanism for some ungoldy reason
+      // Code is a little meh, but it gets the job done
+
+      // Grab the page
+      var trill = new Buffer(item.contents, encoding).toString();
+      // Only get stuff between the <main> tags
+      var pattern = /<main[^>]*>((.|[\n\r])*)<\/main>/im;
+      var body = trill.match(pattern);
+      // Remove the header / nav bar.
+      pattern = /<header\s*[^\>]*\>[\s\S]*?<\/header>/i;
+      body = body[0].replace(pattern, '');
+      // Remove the page title.
+      pattern = /<h1>[\s\S]*?<\/h1>/i;
+      body = body.replace(pattern, '');
+      pattern = /<small>[\s\S]*?<\/small>/i;
+      body = body.replace(pattern, '');
+      //Remove the remaining tags and just have shorter descriptions.
+      body = body.replace(/<[^>]+>/ig, '').substring(0, 750);
+      body = body + '...';
+      feed.item(
+        _extends(
+          { description: body },
+          item,
+          {url: item.url ? _url2["default"].resolve(feedOptions.site_url, item.url) : undefined}
+        )
+      );
     });
 
     files[destination] = {
