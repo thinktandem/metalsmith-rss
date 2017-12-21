@@ -84,7 +84,7 @@ exports["default"] = function () {
         _extends(
           { description: body },
           item,
-          {url: item.url ? _url2["default"].resolve(feedOptions.site_url, item.url) : undefined}
+          {url: item.path ? _url2["default"].resolve(feedOptions.site_url, item.path) : undefined}
         )
       );
     });
